@@ -337,50 +337,64 @@
                 <h4>Join our listserv: <br></h4>
             </div>
             <div class="join d-flex justify-content-center">
-                <form action="https://script.google.com/macros/s/AKfycbwlJ2qocrxwRaNADIYKy8QEgCQvCqRPu6XNU-d24STovw3qZgBVorgvVbyxBfH8fP12/exec" method="POST" id="googleForm">
+                <form id="contact-form">
                     <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="fname">First Name <span class="required">*</span></label>
+                        <label for="fname">First Name</label>
                         <input type="text" id="fname" name="fname" required class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="lname">Last Name <span class="required">*</span></label>
+                        <label for="lname">Last Name</label>
                         <input type="text" id="lname" name="lname" required class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="department">Department <span class="required">*</span></label>
-                        <select id="department" name="department" class="form-control" required>
-                            <option value="EEB">EEB</option>
-                            <option value="physci">Physci?</option>
-                            <option value="notEEB">not EEB</option>
-                        </select>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" id="department" name="department" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="degree">Program (MS, PhD, etc)</label>
+                        <input type="text" id="degree" name="degree" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="text" id="year" name="year" required class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-                <script>
-                    document.getElementById("googleForm").addEventListener("submit", function(event) {
-                        event.preventDefault(); // Prevent default form submission
-                        
-                        const formData = {
-                            email: document.getElementById('email').value,
-                            fname: document.getElementById('fname').value,
-                            lname: document.getElementById('lname').value,
-                            affiliation: document.getElementById('department').value,
-                        };
+            <!-- EmailJS Script -->
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+              (function() {
+                emailjs.init("LXlcIu8LrN6YgQrgN"); // Replace with your EmailJS user ID
+              })();
 
-                        fetch('https://script.google.com/macros/s/AKfycbwlJ2qocrxwRaNADIYKy8QEgCQvCqRPu6XNU-d24STovw3qZgBVorgvVbyxBfH8fP12/exec', {
-                            method: 'POST',
-                            body: new URLSearchParams(formData), // Use URLSearchParams to send data as form-data
-                        })
-                        .then(response => response.text()) // Changed to text() because Google Apps Script returns plain text
-                        .then(data => alert('Form submitted successfully!'))
-                        .catch(error => console.error('Error:', error));
-                    });
-                    </script>
+              // Handle form submission
+              document.getElementById("contact-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                var formData = {
+                  email: document.getElementById("email").value,
+                  fname: document.getElementById("fname").value,
+                  lname: document.getElementById("lname").value,
+                  department: document.getElementById("department").value,
+                  degree: document.getElementById("degree").value,
+                  year: document.getElementById("year").value,
+                };
+
+                // Send the form data using EmailJS
+                emailjs.send("service_gld3cng", "listserv_template", formData)
+                  .then(function(response) {
+                    alert("Form submitted successfully!");
+                  }, function(error) {
+                    console.error("Error sending email:", error);
+                    alert("There was an error with the form submission.");
+                  });
+              });
+            </script>
             </div>
         </div>
     </div>
