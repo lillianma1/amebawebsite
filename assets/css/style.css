@@ -331,7 +331,7 @@ table.unstyledTable thead th {
     display: block;
     position: relative;
     color: #333333;
-    padding: 10px 20px;
+    padding: 0px 20px;
     font-weight: 500;
     outline: none;
 }
@@ -878,7 +878,7 @@ section {
     }
     #board .image-container:hover .hover-overlay p {
         transform: translate(5px, 15px);
-        font-size: 20px;
+        font-size: 14px;
     }
 }
 
@@ -895,7 +895,7 @@ section {
     padding-bottom: 10px;
 }
 #pastevents .section-title h2 {
-    font-size: 2vw;
+    font-size: 2.2vw;
     margin-top: 0;
 }
 
@@ -992,7 +992,7 @@ section {
 # Upcoming Events
 --------------------------------------------------------------*/
 #upcomingevents .section-title h2 {
-    font-size: 1.7vw;
+    font-size: 1.8vw;
 }
 
 #upcomingevents {
