@@ -1074,9 +1074,6 @@ float: left;
 max-width: 42px;
 } */
 
-#resources .container{
-    width: 100%;
-}
 .resources .icon-box {
     margin-bottom: 20px;
 }
@@ -1133,7 +1130,11 @@ max-width: 42px;
     font-size: 20px;
     color: #fff;
 }
-
+@media (max-width: 768px) {
+    #resources .container{
+        width: 90%;
+    }
+}
 
 /*--------------------------------------------------------------
 # Contact
