@@ -245,6 +245,47 @@ table.unstyledTable thead th {
     color: #00b7c2;
 }
 
+/* Style for the dropdown menu */
+.nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu .dropdown-menu {
+    display: none;
+}
+
+.nav-menu .dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgb(230, 245, 245);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    font-family: "Raleway", sans-serif;
+}
+
+.nav-menu .dropdown-menu li {
+    margin: 0;
+}
+
+.nav-menu .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-menu .dropdown-menu a:hover {
+    background-color: #26aba6;
+    color: #fff;
+}
+
 /* Mobile Navigation */
 
 .mobile-nav-toggle {
@@ -302,19 +343,6 @@ table.unstyledTable thead th {
     text-decoration: none;
 }
 
-.mobile-nav-overly {
-    width: 100%;
-    height: 100%;
-    z-index: 9997;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: rgba(26, 26, 26, 0.6);
-    overflow: hidden;
-    display: none;
-    transition: ease-in-out 0.2s;
-}
-
 .mobile-nav-active {
     overflow: hidden;
 }
@@ -331,10 +359,12 @@ table.unstyledTable thead th {
 
 /* Dropdown menu in mobile */
 .mobile-nav-active .dropdown-menu {
+    width: 100%;
     display: none;
-    background-color: transparent; /* Remove background box */
-    box-shadow: none; /* Remove box shadow */
-    padding: 0; /* Remove padding */
+    background-color: #e6f5f5;
+    box-shadow: none;
+    border: none;
+    padding: 0; 
     font-family: "Raleway", sans-serif;
 }
 
@@ -350,51 +380,6 @@ table.unstyledTable thead th {
 .mobile-nav-active .dropdown-menu a {
     color: black;
     text-decoration: none;
-}
-
-.mobile-nav-active .dropdown-menu a:hover {
-    color: #26aba6;
-}
-
-/* Style for the dropdown menu */
-.nav-menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.nav-menu li {
-    position: relative;
-}
-
-.nav-menu .dropdown-menu {
-    display: none;
-}
-
-.nav-menu .dropdown:hover .dropdown-menu {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: rgb(230, 245, 245);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    font-family: "Raleway", sans-serif;
-}
-
-.nav-menu .dropdown-menu li {
-    margin: 0;
-}
-
-.nav-menu .dropdown-menu a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-.nav-menu .dropdown-menu a:hover {
-    background-color: #26aba6;
-    color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -670,7 +655,6 @@ section {
     display: inline-block;
     position: relative;
     padding: 10px 0;
-    padding-bottom: 2px;
     letter-spacing: 1px;
 }
 
@@ -912,6 +896,7 @@ section {
 }
 #pastevents .section-title h2 {
     font-size: 2vw;
+    margin-top: 0;
 }
 
 #pastevents .owl-carousel{
@@ -941,6 +926,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#pastevents .owl-carousel .owl-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 0;
 }
 
 #pastevents .carousel-item {
@@ -980,7 +973,6 @@ section {
 @media only screen and (max-width: 768px){
     #pastevents .section-title h2 {
         font-size: 5vw;
-        margin-top: 5px;
     }
     #pastevents .section-title img{
         width: 65vw;
@@ -988,13 +980,11 @@ section {
     #pastevents .owl-carousel{
         width: 85vw;
     }
+    #pastevents .owl-dots{
+        margin-top: 0;
+    }
     #pastevents .caption h1{
         font-size: 4vw;
-    }
-    #pastevents .owl-carousel .owl-stage {
-      display: flex;
-      align-items: center;
-      min-height: 100px;
     }
 }
 
@@ -1074,55 +1064,6 @@ section {
         margin-top: 5px;
     }
 }
-/*
-#upcomingevents .box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#upcomingevents #collapseCalendar {
-    width: 100%;
-    height: auto;
-}
-
-#upcomingevents button.morebutton {
-    position: relative;
-    display: inline-block;
-    width: fit-content;
-    background-color: #00b7c2;
-    color: white;
-    padding: 8px 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    outline: none;
-}
-
-#upcomingevents button.collapsed:after {
-    content: '+ Show More';
-}
-
-#upcomingevents button:not(.collapsed):after {
-    content: '- Show Less';
-}
-
-#upcomingevents #collapseCalendar.collapse:not(.show) {
-    display: block;
-    height: 40em;
-    overflow: hidden;
-}
-
-#upcomingevents #collapseCalendar.collapsing {
-    height: 40em;
-}
-
-@media only screen and (max-width: 850px){
-    #upcomingevents .section-title h2 {
-        font-size: 5.5vw;
-    }
-}*/
 
 /*--------------------------------------------------------------
 # Resources
@@ -1133,6 +1074,9 @@ float: left;
 max-width: 42px;
 } */
 
+#resources .container{
+    width: 100%;
+}
 .resources .icon-box {
     margin-bottom: 20px;
 }
@@ -1208,6 +1152,7 @@ max-width: 42px;
     width: auto;
     max-width: none;
     text-align: left;
+    border-radius: 8px;
 }
 
 #contact #info i {
@@ -1242,16 +1187,6 @@ max-width: 42px;
 }
 
 /* General Form Styling */
-#googleForm {
-    margin-top: 10px;
-    width: 80%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 #contact-form {
     width: 100%;             /* Ensure the form takes the full width of the parent container */
     max-width: 800px;        /* Limit the maximum width of the form */
@@ -1298,7 +1233,7 @@ select:focus {
 }
 
 /* Button Styling */
-button {
+#contact-form button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -1312,8 +1247,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
-
-button:hover {
+#contact-form button:hover {
     background-color: #218c8a; /* Hover effect */
 }
 
@@ -1333,11 +1267,16 @@ button:hover {
     #contact .section-title h2 {
         font-size: 6vw;
     }
-    #googleForm {
+    
+    #contact-form {
         padding: 15px;
     }
+    
+    #contact #info h4 {
+        padding: 0 0 0 10px;
+    }
 
-    button {
+    #contact-form button {
         width: 100%;
         text-align: center;
     }
